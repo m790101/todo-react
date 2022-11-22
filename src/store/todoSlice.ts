@@ -2,13 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const todoSlice = createSlice({
     name:'todos',
-    initialState:[
-        {id:1,todo:'todo1',isDone:false,isEdited:false},
-        {id:2,todo:'todo2',isDone:false,isEdited:false},
-        {id:3,todo:'todo3',isDone:true,isEdited:false}
-    ],
+    initialState:[],
     reducers:{
-        addTodo:(state,action)=>{
+        addTodo:(state:any,action)=>{
+            if(action.payload.todo.trim().length === 0)return 
             const newTodo = {
                 id: Date.now(),
                 todo: action.payload.todo,
@@ -17,19 +14,19 @@ const todoSlice = createSlice({
             }
             state.push(newTodo)
         },
-        toggleDone:(state,action)=>{
-            const index = state.findIndex((todo)=> todo.id === action.payload.id)
+        toggleDone:(state:any,action)=>{
+            const index = state.findIndex((todo: { id: number; })=> todo.id === action.payload.id)
             state[index].isDone = action.payload.isDone
         },
-        deleteTodo:(state,action)=>{
-           return state.filter((todo)=>todo.id !==action.payload.id)
+        deleteTodo:(state:any,action)=>{
+           return state.filter((todo: { id: number; })=>todo.id !==action.payload.id)
         },
-        toggleIsEdited:(state,action)=>{
-            const index = state.findIndex((todo)=> todo.id === action.payload.id)
+        toggleIsEdited:(state:any,action)=>{
+            const index = state.findIndex((todo: { id: number; })=> todo.id === action.payload.id)
             state[index].isEdited = action.payload.isEdited
         },
-        updateTodo:(state,action)=>{
-            const index = state.findIndex((todo)=> todo.id === action.payload.id)
+        updateTodo:(state:any,action)=>{
+            const index = state.findIndex((todo: { id: number; })=> todo.id === action.payload.id)
             state[index].todo = action.payload.todo
         }
 
