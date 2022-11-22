@@ -1,6 +1,7 @@
 {
   "name": "todo",
   "version": "0.1.0",
+  "homepage": "https://m790101.github.io/todo-react",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
@@ -12,6 +13,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "bootstrap": "^5.2.2",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
