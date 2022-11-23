@@ -1,5 +1,4 @@
-export interface TodoModel{
-    todos: any;
+export interface TodoInterface{
     id:number,
     todo:string,
     isDone:boolean,
